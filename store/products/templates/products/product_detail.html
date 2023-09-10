@@ -1,0 +1,21 @@
+{% extends 'products/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <img src="{{ product.image.url }}" class="img-fluid" alt="{{ product.name }}">
+        </div>
+        <div class="col-lg-6">
+            <h1 class="my-4">{{ product.name }}</h1>
+            <p><strong>Цена:</strong> {{ product.price }} руб.</p>
+            <p><strong>Категория:</strong> {{ product.category }}</p>
+            <p><strong>Описание:</strong> {{ product.description }}</p>
+            <p><strong>Краткое описание:</strong> {{ product.short_description }}</p>
+            <p><strong>Лайки:</strong> {{ product.likes }}</p>
+            <a href="{% url 'products:like_product' product.id %}" class="btn btn-primary">Лайк</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
